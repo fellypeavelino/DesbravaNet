@@ -40,6 +40,7 @@
 						    <?php echo $this->session->flashdata('danger'); ?>
 						</div>
 					<?php endif; ?>
+					<div class="g-recaptcha" data-sitekey="6LcgGhcTAAAAACSegU_kc-S42Kcygw-2HdCnMoNG"></div><br>
 		  			<input id="login" class="btn btn-lg btn-block btn-primary" type="submit" value="Login"></input>
 				</form>
 				<div id="overlay" class="overlay" display="none">

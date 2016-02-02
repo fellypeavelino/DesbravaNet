@@ -31,19 +31,34 @@ class Login extends CI_Controller {
 	}
 
 	public function logon() {
-		$this->load->model('usuarios_model');
-
-		$user = $this->usuarios_model->searchByUser($this->input->post("user"));
-
-		if ($user) {
-			$pass = $this->input->post("pass");
-			if(md5($pass) != $user['pass']){
-				$this->session->set_flashdata('danger','Senha incorreta!');
+		require_once "../third_party/recaptchalib.php";			// busca a biblioteca recaptcha
+		$secret = "6LcgGhcTAAAAAHXSiMR1BT4pg183Ix6UEsoCBvgw";	// sua chave secreta
+		$response = null;										// resposta vazia
+		$reCaptcha = new ReCaptcha($secret);					// verifique a chave secreta
+		
+		// se submetido, verifique a resposta
+		if ($_POST["g-recaptcha-response"]) {
+		$response = $reCaptcha->verifyResponse(
+		        $_SERVER["REMOTE_ADDR"],
+		        $_POST["g-recaptcha-response"]
+		    );
+		}
+		
+		if ($response != null && $response->success) {
+			$this->load->model('Usuarios_model');
+	
+			$user = $this->Usuarios_model->searchByUser($this->input->post("user"));
+	
+			if ($user) {
+				$pass = $this->input->post("pass");
+				if(md5($pass) != $user['pass']){
+					$this->session->set_flashdata('danger','Senha incorreta!');
+				}else{
+					$this->session->set_userdata('logged',$user);
+				}
 			}else{
-				$this->session->set_userdata('logged',$user);
+				$this->session->set_flashdata('danger','Usuário não encontrado!');
 			}
-		}else{
-			$this->session->set_flashdata('danger','Usuário não encontrado!');
 		}
 		redirect("/");
 	}
