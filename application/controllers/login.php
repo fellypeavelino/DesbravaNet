@@ -61,4 +61,10 @@ class Login extends CI_Controller {
 			return false;
 		}
 	}
+	
+	public function getGroupName(){
+		$this->load->model('Grupos_model');
+		$group = $this->Grupos_model->searchById($this->input->post("group_id"));
+		return $group['name'];
+	}
 }
