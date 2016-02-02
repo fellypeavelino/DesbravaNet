@@ -3,8 +3,13 @@
 class Usuarios extends CI_Controller {
 
 	public function index() {
+		$data = array(
+               'title' => 'Usuários',
+               'h1' => 'Cadastro de Usuário',
+               'small' => ''
+          );
 		$this->load->helper("form");
-		$this->load->view("_template/header");
+		$this->load->view("_template/header",$data);
 		$this->load->view("usuarios/index");
 		$this->load->view("_template/footer");
 	}
