@@ -30,8 +30,8 @@
   			</div>
   			<div class="panel panel-body">
 	      		<form action="<?php echo base_url('index.php/Login/logon');?>" method="post" onsubmit="load()">
-	      			<input placeholder="Usuário" class="form-control input-lg" type="text" name="user"><br>
-		  			<input placeholder="Senha" class="form-control input-lg" type="password" name="pass"><br>
+	      			<input placeholder="Usuário" class="form-control input-lg" type="text" name="user" required="true"><br>
+		  			<input placeholder="Senha" class="form-control input-lg" type="password" name="pass" required="true"><br>
 		  			<?php if($this->session->flashdata('danger')):
 						$message = $this->session->flashdata('danger');
 						?>

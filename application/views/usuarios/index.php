@@ -37,6 +37,7 @@
 			"class"=>"form-control",
 			"maxlength"=>"255"
 		));
+		echo "<br>";
 
 		echo form_button(array(
 			"id"=>"btn",
