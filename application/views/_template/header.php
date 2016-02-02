@@ -7,7 +7,7 @@ $url = '//'.$_SERVER['HTTP_HOST'];
 
 <!DOCTYPE html>
 <html>
-<base href="<?php echo $url."/codeigniter/"; ?>">
+<base href="<?php echo $url."/"; ?>">
 <head>
     <meta charset="utf-8">
     <title>DesbravaNet</title>
