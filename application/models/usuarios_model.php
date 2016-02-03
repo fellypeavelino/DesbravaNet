@@ -1,20 +1,19 @@
 <?php
 
-Class Usuarios_model extends CI_Model {
+class Usuarios_model extends CI_Model {
 	private $table = "usuarios";
 
 	public function salvar($usuario){
-		$this->db->insert($table,$usuario);
+		$this->db->insert($this->table,$usuario);
 	}
 
 
 	public function searchByUser($user){
-		$this->db->where("user",$user);
-		return $this->db->get($table)->row_array();	//apenas uma linha
+		return $this->db->get_where($this->table, array('user' => $user))->row_array();	//apenas uma linha de verdade
 	}
 
 	public function getAll(){
-		return $this->db->get($table)->result_array();	//Todos os registros
+		return $this->db->get($this->table)->result_array();	//Todos os registros
 	}
 
 	//$query = "INSERT INTO tbl_chatberichten (chat_id, student_id, bericht) VALUES (?,?,?)";
