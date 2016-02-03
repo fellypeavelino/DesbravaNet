@@ -1,6 +1,6 @@
 <?php
 
-Class Usuarios_model extends CI_Model {
+class Usuarios_model extends CI_Model {
 	private $table = "usuarios";
 
 	public function salvar($usuario){
