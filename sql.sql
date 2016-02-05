@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `user`, `name`, `group_id`, `pass`, `email`, `registered`) VALUES
-(1, 'anpix', 'Rafael Tavares', 1, '8f5a236b92d2236ceb61d770054cc03f', 'rafael.tavares@anpix.com.br', '2016-01-30 15:31:17'),
+(1, 'anpix', 'Rafael Tavares', 1, '8f5a236b92d2236ceb61d770054cc03f', 'rafael.tavares@anpix.com.br', '2016-01-30 15:31:17');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
